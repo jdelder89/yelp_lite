@@ -10,7 +10,8 @@ class ViewersController < ApplicationController
   end
 
   def index
-    @viewers = Viewer.page(params[:page]).per(10)
+    @q = Viewer.ransack(params[:q])
+    @viewers = @q.result(:distinct => true).includes(:user, :restaurant).page(params[:page]).per(10)
 
     render("viewers/index.html.erb")
   end

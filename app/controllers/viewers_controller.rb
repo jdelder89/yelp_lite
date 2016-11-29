@@ -10,7 +10,7 @@ class ViewersController < ApplicationController
   end
 
   def index
-    @viewers = Viewer.all
+    @viewers = Viewer.page(params[:page]).per(10)
 
     render("viewers/index.html.erb")
   end

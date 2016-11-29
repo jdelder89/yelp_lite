@@ -24,7 +24,7 @@
           State
         </label>
 
-        <input type="text" id="state_id" name="state_id" placeholder="State" class="form-control" value="<%= @city.state_id %>">
+        <%= select_tag(:state_id, options_from_collection_for_select(State.all, :id, :created_at, @city.state_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

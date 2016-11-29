@@ -23,3 +23,34 @@
     </div>
   </div>
 </div>
+
+<!-- A City has many neighborhoods -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Neighborhoods
+      </li>
+
+      <% @city.neighborhoods.each do |neighborhood| %>
+        <li class="list-group-item">
+          <a href="/neighborhoods/<%= neighborhood.id %>">
+            <%= neighborhood.city_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/neighborhoods/<%= neighborhood.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/neighborhoods/<%= neighborhood.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_neighborhood/<%= neighborhood.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

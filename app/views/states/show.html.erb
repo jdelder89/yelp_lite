@@ -48,6 +48,20 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_city" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for state_id -->
+      <input type="hidden" name="state_id" value="<%= @state.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create City
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

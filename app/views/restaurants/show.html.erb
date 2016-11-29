@@ -60,6 +60,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_viewer" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for restaurant_id -->
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Viewer
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

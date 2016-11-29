@@ -16,7 +16,7 @@
 
       <% @viewers.each do |viewer| %>
       <tr>
-        <td><%= viewer.user_id %></td>
+        <td><%= viewer.user.email %></td>
         <td><%= viewer.restaurant_id %></td>
         <td>
           <a href="/viewers/<%= viewer.id %>" class="btn btn-primary">Show</a>

@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Viewer resource:
+  # CREATE
+  get "/viewers/new", :controller => "viewers", :action => "new"
+  post "/create_viewer", :controller => "viewers", :action => "create"
+
+  # READ
+  get "/viewers", :controller => "viewers", :action => "index"
+  get "/viewers/:id", :controller => "viewers", :action => "show"
+
+  # UPDATE
+  get "/viewers/:id/edit", :controller => "viewers", :action => "edit"
+  post "/update_viewer/:id", :controller => "viewers", :action => "update"
+
+  # DELETE
+  get "/delete_viewer/:id", :controller => "viewers", :action => "destroy"
+  #------------------------------
+
   # Routes for the Restaurant resource:
   # CREATE
   get "/restaurants/new", :controller => "restaurants", :action => "new"

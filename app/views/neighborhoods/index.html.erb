@@ -15,7 +15,13 @@
 
       <% @neighborhoods.each do |neighborhood| %>
       <tr>
-        <td><%= neighborhood.city.state_id %></td>
+        <td>
+          <% if neighborhood.city.present? %>
+            <a href="/cities/<%= neighborhood.city.id %>">
+              <%= neighborhood.city.state_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/neighborhoods/<%= neighborhood.id %>" class="btn btn-primary">Show</a>
           <a href="/neighborhoods/<%= neighborhood.id %>/edit" class="btn btn-warning">Edit</a>

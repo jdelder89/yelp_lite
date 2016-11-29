@@ -16,8 +16,20 @@
 
       <% @viewers.each do |viewer| %>
       <tr>
-        <td><%= viewer.user.email %></td>
-        <td><%= viewer.restaurant.description %></td>
+        <td>
+          <% if viewer.user.present? %>
+            <a href="/users/<%= viewer.user.id %>">
+              <%= viewer.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if viewer.restaurant.present? %>
+            <a href="/restaurants/<%= viewer.restaurant.id %>">
+              <%= viewer.restaurant.description %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/viewers/<%= viewer.id %>" class="btn btn-primary">Show</a>
           

@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>State</dt>
-      <dd><%= @city.state_id %></dd>
+      <dd>
+        <% if @city.state.present? %>
+          <a href="/states/<%= @city.state_id %>">
+            <%= @city.state.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

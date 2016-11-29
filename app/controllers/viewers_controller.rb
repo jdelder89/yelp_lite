@@ -1,4 +1,14 @@
 class ViewersController < ApplicationController
+  before_action :current_user_must_be_viewer_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_viewer_user
+    viewer = Viewer.find(params[:id])
+
+    unless current_user == viewer.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @viewers = Viewer.all
 
